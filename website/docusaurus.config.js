@@ -14,18 +14,19 @@ const config = {
   favicon: "img/logo.svg",
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://ragflow.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "InfiniFlow", // Usually your GitHub org/user name.
+  projectName: "RAGFlow", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  onBrokenAnchors: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -41,18 +42,30 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          disableVersioning: false,
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/infiniflow/ragflow/tree/main",
+          editCurrentVersion: true,
+          lastVersion: "current",
+          versions:{
+            current: {
+              label: 'DEV',
+              path: 'dev',
+            },
+          },
+          admonitions: {
+            keywords: ['note', 'tip', 'info', 'warning', 'danger'],
+          }
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          // editUrl:
+            // "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -65,27 +78,57 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/ragflow-social-card.png",
       colorMode: {
+        defaultMode: 'light',
         disableSwitch: true,
+      },
+      docs: {
+        sidebar: {
+          hideable: false,
+          autoCollapseCategories: false,
+        },
       },
       navbar: {
         hideOnScroll: true,
         title: "RAGFlow",
         logo: {
-          alt: "My Site Logo",
+          alt: "RAGFlow",
           src: "img/logo.svg",
         },
         items: [
           {
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: 'Docs',
+          },
+          {to: '/blog', label: 'Blog', position: 'left'},
+          {
             href: "https://github.com/infiniflow/ragflow",
             "aria-label": "GitHub repo",
-            position: "right",
+            position: "left",
             className: "header-github-link",
           },
           {
             type: "custom-github-stars",
-            position: "right",
+            position: "left",
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+          },
+          {
+            href: 'https://twitter.com/infiniflowai',
+            'aria-label': 'Twitter',
+            position: 'right',
+            className: 'header-twitter-link',
+          },
+          {
+            href: 'https://discord.gg/4XxujFgUN7',
+            'aria-label': 'RAGFlow on Discord',
+            position: 'right',
+            className: 'header-discord-link',
           },
           // {
           //   type: 'docSidebar',
@@ -93,7 +136,6 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorial',
           // },
-          // // {to: '/blog', label: 'Blog', position: 'left'},
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',

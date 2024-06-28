@@ -67,11 +67,40 @@ html[data-theme="dark"] .header-github-link:before {
   box-shadow: none;
   background-color: transparent;
 }
+
+html[class~="docs-wrapper"] #__docusaurus {
+  background-image: none;
+}
+
+html[class~="docs-wrapper"] a[class^="sidebarLogo"] {
+  visibility: hidden !important;
+}
+
+html[class~="docs-wrapper"] footer {
+  background-image: none;
+}
+
+html[class~="blog-wrapper"] #__docusaurus {
+  background-image: none;
+}
+
+html[class~="blog-wrapper"] a[class^="sidebarLogo"] {
+  visibility: hidden !important;
+}
+
+html[class~="blog-wrapper"] footer {
+  background-image: none;
+}
+
+aside.theme-doc-sidebar-container {
+  border-right: 0;
+}
+
 #__docusaurus {
   background-image: url("https://www.freeimg.cn/i/2024/03/28/66053a378a6a8.png");
   background-repeat: no-repeat;
   background-position: -10px -10px;
-  background-size: 102% 50%;
+  background-size: 102% 80%;
 }
 .slick-dots {
   bottom: -30px !important;
@@ -101,4 +130,52 @@ html[data-theme="dark"] .header-github-link:before {
 }
 .footer__item {
   text-align: center;
+}
+
+/* twitter */
+.header-twitter-link:hover {
+  opacity: 0.6;
+}
+
+.header-twitter-link:before {
+  content: url('/img/twitter.svg');
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+html[data-theme='dark'] .header-twitter-link:before {
+  filter: invert(100);
+}
+
+.header-twitter-link,
+.header-discord-link {
+  padding-left: 0;
+}
+
+/* Discord */
+.header-discord-link:hover {
+  opacity: 0.6;
+}
+
+.header-discord-link:before {
+  content: url('/img/discord.svg');
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+html[data-theme='dark'] .header-discord-link:before {
+  filter: invert(100%);
+}
+
+/* Remove banner for earlier versions.*/
+.alert.alert--warning.margin-bottom--md {
+  display: none;
+}
+
+.hidden {
+  display: none !important;
 }
